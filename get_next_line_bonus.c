@@ -6,13 +6,11 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:31:24 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/10/27 22:07:58 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/10/27 22:44:30 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
-#include "get_next_line.h"
 
 static char	*ft_read_file(char *garbage, int fd)
 {

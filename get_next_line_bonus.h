@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:45:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/10/27 21:43:23 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/10/27 22:44:41 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 19
+#  define BUFFER_SIZE 17
 # endif
 
 # include <stdlib.h>
