@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:45:55 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/10/27 22:01:58 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/10/31 05:15:07 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ static char	*ft_read_file(char *garbage, int fd)
 	int		i;
 	char	*temp;	
 
-	i = 1;
+	i = 0;
 	temp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!temp)
 		return (NULL);
-	while (!ft_strchr(garbage, '\n') && i > 0)
+	while (!ft_strchr(garbage, '\n') && ++i > 0)
 	{
 		i = read(fd, temp, BUFFER_SIZE);
-		if (i == -1 || (i == 0 && !ft_strlen(garbage)))
+		if (i == -1 || (i == 0 && 0 == ft_strlen(garbage)))
 		{
 			if (garbage)
 				free(garbage);
@@ -33,6 +33,7 @@ static char	*ft_read_file(char *garbage, int fd)
 		}
 		temp[i] = '\0';
 		garbage = ft_strjoin(garbage, temp);
+		i--;
 	}
 	free(temp);
 	return (garbage);
@@ -77,7 +78,7 @@ static char	*ft_get_line(char *garbage)
 	if (garbage[i] == '\n')
 		i++;
 	stop = i;
-	line = (char *)malloc(sizeof(char) * (i + 1));
+	line = (char *)malloc(sizeof(char) * (stop + 1));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -86,7 +87,7 @@ static char	*ft_get_line(char *garbage)
 		line[i] = garbage[i];
 		i++;
 	}
-	line[i] = '\0';
+	line[stop] = '\0';
 	return (line);
 }
 
@@ -95,7 +96,7 @@ char	*get_next_line(int fd)
 	static char	*garbage;	
 	char		*line;
 
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	garbage = ft_read_file(garbage, fd);
 	if (!garbage || !*garbage)

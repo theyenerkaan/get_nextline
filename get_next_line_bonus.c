@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 21:31:24 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/10/27 22:44:30 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/10/31 03:53:41 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ static char	*ft_get_line(char *garbage)
 
 char	*get_next_line(int fd)
 {
-	static char	*garbage[1024];	
+	static char	*garbage[10240];	
 	char		*line;
 
-	if (fd < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 10240)
 		return (NULL);
 	garbage[fd] = ft_read_file(garbage[fd], fd);
 	if (!garbage[fd] || !*garbage[fd])

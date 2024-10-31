@@ -6,7 +6,7 @@
 /*   By: yenyilma <yyenerkaan1@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:45:59 by yenyilma          #+#    #+#             */
-/*   Updated: 2024/10/27 22:44:41 by yenyilma         ###   ########.fr       */
+/*   Updated: 2024/10/31 03:53:54 by yenyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
 
 int		ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
